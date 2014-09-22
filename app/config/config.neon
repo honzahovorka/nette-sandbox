@@ -4,7 +4,10 @@
 # If you don't protect this directory from direct web access, anybody will be able to see your passwords.
 # http://nette.org/security-warning
 #
+
 parameters:
+  siteName: 'App'
+  uploadsDir: %wwwDir%/../uploads
 
 
 php:
@@ -17,10 +20,25 @@ nette:
     mapping:
       *: App\*Module\*Presenter
 
+  container:
+    debugger: true
+
   session:
     expiration: 14 days
+    save_path: %tempDir%/sessions
 
 
 services:
   - App\Model\UserManager
+
+  DefaultPresenter:
+    class: App\DefaultPresenter
+    setup:
+      - $siteName(%siteName%)
+
+  SignPresenter:
+    class: App\SignPresenter
+    setup:
+      - $siteName(%siteName%)
+
   router: App\RouterFactory()::createRouter

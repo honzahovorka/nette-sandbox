@@ -1,10 +1,30 @@
-log/*
-temp/*
-vendor/*
+## Numerous always-ignore items
+*.diff
+*.err
+*.log
+*.swp
+*.vi
+*~
+*.sass-cache
+*.sublime-workspace
+.DS_Store
+.cache
+.idea
+.project
+.settings
+.tmproj
+Thumbs.db
+desktop.ini
+nbproject
+
+## Folders to ignore
+node_modules
+vendor
 !vendor/others
 
-.DS_Store
+## Files to ignore
+app/config/config.local.neon
+log/*
+temp/*
 !.gitignore
 !.htaccess
-!web.config
-app/config/config.local.neon

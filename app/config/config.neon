@@ -8,19 +8,19 @@ parameters:
 
 
 php:
-	date.timezone: Europe/Prague
+  date.timezone: Europe/Bratislava
 
 
 nette:
-	application:
-		errorPresenter: Error
-		mapping:
-			*: App\*Module\*Presenter
+  application:
+    errorPresenter: Error
+    mapping:
+      *: App\*Module\*Presenter
 
-	session:
-		expiration: 14 days
+  session:
+    expiration: 14 days
 
 
 services:
-	- App\Model\UserManager
-	router: App\RouterFactory()::createRouter
+  - App\Model\UserManager
+  router: App\RouterFactory()::createRouter

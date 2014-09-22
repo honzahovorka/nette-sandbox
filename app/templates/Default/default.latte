@@ -1,12 +1,16 @@
 {block content}
-  <div id="banner">
-    <h1 n:block=title>Congratulations!</h1>
+  <div class="hero row">
+    <div class="large-12 columns">
+      <h1 n:block="title">Congratulations</h1>
+    </div>
   </div>
 
-  <div id="content">
-    <h2>You have successfully created your Nette Framework project.</h2>
+  <div class="content row">
+    <div class="large-12 columns">
+      <h2>You have successfully created your <a href="http://www.nette.org">Nette Framework</a> project.</h2>
 
-    <footer>PHP {=PHP_VERSION} |
-      {ifset $_SERVER['SERVER_SOFTWARE']}Server {$_SERVER['SERVER_SOFTWARE']}{/ifset} |
-      Nette Framework {=Nette\Framework::VERSION}</footer>
+      <footer>PHP {=PHP_VERSION} |
+        {ifset $_SERVER['SERVER_SOFTWARE']}Server {$_SERVER['SERVER_SOFTWARE']}{/ifset} |
+        Nette Framework {=Nette\Framework::VERSION}</footer>
+    </div>
   </div>

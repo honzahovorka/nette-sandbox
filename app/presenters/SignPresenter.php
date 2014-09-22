@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Presenters;
+namespace App;
 
 use Nette\Application\UI,
 	Nette\Security;
@@ -42,7 +42,7 @@ class SignPresenter extends BasePresenter
 
 		try {
 			$this->getUser()->login($values->username, $values->password);
-			$this->redirect('Homepage:');
+			$this->redirect('Default:');
 
 		} catch (Security\AuthenticationException $e) {
 			$form->addError($e->getMessage());

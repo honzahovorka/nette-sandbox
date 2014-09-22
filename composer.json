@@ -1,30 +1,37 @@
 {
-	"name": "nette/sandbox",
-	"description": "The sandbox is a pre-packaged Nette Framework project, basic configured structure for your application.",
-	"homepage": "http://nette.org",
-	"type": "project",
-	"license": ["Unlicense"],
-	"authors": [
-		{
-			"name": "David Grudl",
-			"homepage": "http://davidgrudl.com"
-		},
-		{
-			"name": "Nette Community",
-			"homepage": "http://nette.org/contributors"
-		}
-	],
-	"require": {
-		"php": ">= 5.3.7",
-		"nette/nette": "~2.2@dev",
-	},
-	"require-dev": {
-		"nette/tester": "~1.0"
-	},
-	"minimum-stability": "dev",
-	"extra": {
-		"branch-alias": {
-			"dev-master": "2.3-dev"
-		}
-	}
+  "name": "srigi/nette-sandbox",
+  "description": "Pre-setted minimal Nette Framework project",
+  "type": "project",
+  "license": ["Unlicense"],
+  "authors": [
+    {
+      "name": "David Grudl",
+      "homepage": "http://davidgrudl.com"
+    },
+    {
+      "name": "Nette Community",
+      "homepage": "http://nette.org/contributors"
+    },
+    {
+      "name": "Igor Hlina",
+      "homepage": "http://www.srigi.sk"
+    }
+  ],
+
+  "minimum-stability": "dev",
+
+  "require": {
+    "php": ">= 5.3.7",
+    "nette/nette": "~2.2@dev"
+  },
+
+  "require-dev": {
+    "nette/tester": "~1.2.0"
+  },
+
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.3-dev"
+    }
+  }
 }

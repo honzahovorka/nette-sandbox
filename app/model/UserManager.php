@@ -2,15 +2,15 @@
 
 namespace App\Model;
 
-use Nette,
-	Nette\Utils\Strings,
-	Nette\Security\Passwords;
+use Nette\Object,
+	Nette\Database,
+	Nette\Security;
 
 
 /**
  * Users management.
  */
-class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
+class UserManager extends Object implements Security\IAuthenticator
 {
 	const
 		TABLE_NAME = 'users',
@@ -20,20 +20,22 @@ class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
 		COLUMN_ROLE = 'role';
 
 
-	/** @var Nette\Database\Context */
+	/** @var Database\Context */
 	private $database;
 
 
-	public function __construct(Nette\Database\Context $database)
+	public function __construct(Database\Context $database)
 	{
 		$this->database = $database;
 	}
 
 
 	/**
-	 * Performs an authentication.
-	 * @return Nette\Security\Identity
-	 * @throws Nette\Security\AuthenticationException
+	 * Performs an authentication
+	 *
+	 * @param array $credentials
+	 * @return Security\Identity|Security\IIdentity
+	 * @throws Security\AuthenticationException
 	 */
 	public function authenticate(array $credentials)
 	{
@@ -42,34 +44,37 @@ class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
 		$row = $this->database->table(self::TABLE_NAME)->where(self::COLUMN_NAME, $username)->fetch();
 
 		if (!$row) {
-			throw new Nette\Security\AuthenticationException('The username is incorrect.', self::IDENTITY_NOT_FOUND);
+			throw new Security\AuthenticationException('The username is incorrect.', self::IDENTITY_NOT_FOUND);
 
-		} elseif (!Passwords::verify($password, $row[self::COLUMN_PASSWORD_HASH])) {
-			throw new Nette\Security\AuthenticationException('The password is incorrect.', self::INVALID_CREDENTIAL);
+		} elseif (!Security\Passwords::verify($password, $row[self::COLUMN_PASSWORD_HASH])) {
+			throw new Security\AuthenticationException('The password is incorrect.', self::INVALID_CREDENTIAL);
 
-		} elseif (Passwords::needsRehash($row[self::COLUMN_PASSWORD_HASH])) {
+		}
+
+		if (Security\Passwords::needsRehash($row[self::COLUMN_PASSWORD_HASH])) {
 			$row->update(array(
-				self::COLUMN_PASSWORD_HASH => Passwords::hash($password),
+				self::COLUMN_PASSWORD_HASH => Security\Passwords::hash($password),
 			));
 		}
 
 		$arr = $row->toArray();
 		unset($arr[self::COLUMN_PASSWORD_HASH]);
-		return new Nette\Security\Identity($row[self::COLUMN_ID], $row[self::COLUMN_ROLE], $arr);
+
+		return new Security\Identity($row[self::COLUMN_ID], $row[self::COLUMN_ROLE], $arr);
 	}
 
 
 	/**
-	 * Adds new user.
-	 * @param  string
-	 * @param  string
-	 * @return void
+	 * Adds new user
+	 *
+	 * @param $username
+	 * @param $password
 	 */
 	public function add($username, $password)
 	{
 		$this->database->table(self::TABLE_NAME)->insert(array(
 			self::COLUMN_NAME => $username,
-			self::COLUMN_PASSWORD_HASH => Passwords::hash($password),
+			self::COLUMN_PASSWORD_HASH => Security\Passwords::hash($password),
 		));
 	}
 

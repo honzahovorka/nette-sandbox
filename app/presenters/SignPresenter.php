@@ -24,7 +24,7 @@ class SignPresenter extends BasePresenter
 
 		$form->addCheckbox('remember', 'Keep me signed in');
 
-		$form->addSubmit('send', 'Sign in');
+		$form->addSubmit('submit', 'Sign in');
 
 		$form->onSuccess[] = $this->signInFormSucceeded;
 
@@ -45,7 +45,13 @@ class SignPresenter extends BasePresenter
 			$this->redirect('Default:');
 
 		} catch (Security\AuthenticationException $e) {
-			$form->addError($e->getMessage());
+			if ($e->getCode() === Security\IAuthenticator::IDENTITY_NOT_FOUND) {
+				$form['username']->addError($e->getMessage());
+			} elseif ($e->getCode() === Security\IAuthenticator::INVALID_CREDENTIAL) {
+				$form['password']->addError($e->getMessage());
+			} else {
+				$form->addError($e->getMessage());
+			}
 		}
 	}
 

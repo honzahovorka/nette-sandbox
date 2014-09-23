@@ -25,7 +25,7 @@ a[href^="#error:"] {
 form {
   margin: 2em;
 }
-  form .error {
+  form .form-errors {
     color: #D00;
     font: bold 100% sans-serif;
   }

@@ -1,13 +1,22 @@
-{form $form}
-  <ul class=error n:if="$form->ownErrors">
+<form n:name="signInForm">
+  <ul n:if="$form->ownErrors" class="form-errors">
     <li n:foreach="$form->ownErrors as $error">{$error}</li>
   </ul>
 
-
-  <div n:foreach="$form->controls as $input" n:class="$input->required ? required, row">
-    <div class="large-12 columns">
-      <label>{label $input /}</label>
-      {input $input} <span class=error n:ifcontent>{$input->error}</span>
-    </div>
+  <div n:class="$form['username']->required ? 'required', row">
+    <label n:name="username">{$form['username']->caption}
+      <input n:name="username" n:class="$form['username']->error ? 'error'"></label>
+    <small n:ifcontent class="error message">{$form['username']->error}</small>
   </div>
-{/form}
+
+  <div n:class="$form['password']->required ? 'required', row">
+    <label n:name="password">{$form['password']->caption}
+      <input n:name="password" n:class="$form['password']->error ? 'error'"></label>
+    <small n:ifcontent class="error">{$form['password']->error}</small>
+  </div>
+
+  <div class="row">
+    <input n:name="remember"><label n:name="remember">{$form['remember']->caption}</label>
+    <input n:name="submit" class="small radius button">
+  </div>
+</form>

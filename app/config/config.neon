@@ -29,7 +29,7 @@ nette:
 
 
 services:
-  - App\Model\UserManager
+  - App\UserModel
 
   DefaultPresenter:
     class: App\DefaultPresenter

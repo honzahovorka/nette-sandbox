@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App;
 
 use Nette\Object,
 	Nette\Database,
@@ -10,7 +10,7 @@ use Nette\Object,
 /**
  * Users management.
  */
-class UserManager extends Object implements Security\IAuthenticator
+class UserModel extends Object implements Security\IAuthenticator
 {
 	const
 		TABLE_NAME = 'users',

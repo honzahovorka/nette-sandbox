@@ -1,10 +1,12 @@
+#!/usr/bin/env php
 <?php
 
 if (!isset($_SERVER['argv'][2])) {
-	echo '
-Add new user to database.
+	echo 'Add new user to database.
 
-Usage: create-user.php <name> <password>
+Usage:
+  create-user.php <username> <password>
+
 ';
 	exit(1);
 }

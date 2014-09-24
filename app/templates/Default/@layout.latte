@@ -1,0 +1,27 @@
+{layout '../@wrapper.latte'}
+
+
+{block layout}
+  <div n:foreach="$flashes as $flash" class="row">
+    <div class="large-12 columns">
+      <div class="{$flash->type} panel">
+        <p>{$flash->message}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-3 columns">
+      <div class="sidebar">
+        <a n:href="Sign:in">Sign in</a>
+      </div>
+    </div>
+
+    <div class="medium-9 columns">
+      {include content}
+
+      <footer>PHP {=PHP_VERSION} |
+        {ifset $_SERVER['SERVER_SOFTWARE']}Server {$_SERVER['SERVER_SOFTWARE']}{/ifset} |
+        Nette Framework {=Nette\Framework::VERSION}</footer>
+    </div>
+  </div>

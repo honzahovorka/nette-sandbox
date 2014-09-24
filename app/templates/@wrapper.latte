@@ -9,18 +9,10 @@
 
   <link rel="stylesheet" href="{$basePath}/vendor/foundation/css/foundation.css">
   <link rel="stylesheet" href="{$basePath}/css/screen.css">
+  {block styles}{/block}
 </head>
 <body>
-
-  <div n:foreach="$flashes as $flash" class="row">
-    <div class="large-12 columns">
-      <div class="{$flash->type} panel">
-        <p>{$flash->message}</p>
-      </div>
-    </div>
-  </div>
-
-  {include content}
+  {include layout}
 
   <script src="{$basePath}/vendor/jquery/dist/jquery.js"></script>
   <script src="{$basePath}/js/netteForms.js"></script>

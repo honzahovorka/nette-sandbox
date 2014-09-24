@@ -1,12 +1,12 @@
 {block content}
-  <div class="hero row">
-    <div class="large-12 columns">
-      <h1 n:block="title">Sign in</h1>
-    </div>
+  <div class="hero">
+    <h1 n:block="title">Sign in</h1>
   </div>
 
-  <div class="content row">
-    <div class="small-7 small-centered columns">
-       {include '../../forms/signIn.latte', form => signInForm}
+  <div class="content">
+    <div class="row">
+      <div class="small-11 medium-7 large-5 small-centered columns">
+        {include '../../forms/signIn.latte', form => signInForm}
+      </div>
     </div>
   </div>

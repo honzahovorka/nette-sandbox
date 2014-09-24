@@ -44,6 +44,12 @@ form {
   z-index: 123456;
 }
 
+.sidebar {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
 .hero {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAB5CAMAAADPursXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGBQTFRFD1CRDkqFDTlmDkF1D06NDT1tDTNZDk2KEFWaDTZgDkiCDTtpDT5wDkZ/DTBVEFacEFOWD1KUDTRcDTFWDkV9DkR7DkN4DkByDTVeDC9TDThjDTxrDkeADkuIDTRbDC9SbsUaggAAAEdJREFUeNqkwYURgAAQA7DH3d3335LSKyxAYpf9vWCpnYbf01qcOdFVXc14w4BznNTjkQfsscAdU3b4wIh9fDVYc4zV8xZgAAYaCMI6vPgLAAAAAElFTkSuQmCC);
   border-radius: 1rem 1rem 0 0;
@@ -59,15 +65,17 @@ form {
 
 .content {
   background: white;
-  border-radius: 0 0 1em 1em;
-  padding: 0.75em 4%;
+  padding: 1rem 1.5rem;
 }
   .content h2 {
     font-size: 130%;
   }
 
 footer {
+  background: white;
+  border-radius: 0 0 1rem 1rem;
   color: gray;
   font-size: 70%;
-  padding: 1em 0;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
 }

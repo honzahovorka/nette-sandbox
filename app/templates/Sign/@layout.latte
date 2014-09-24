@@ -2,20 +2,11 @@
 
 
 {block layout}
-  <div n:foreach="$flashes as $flash" class="row">
-    <div class="large-12 columns">
-      <div class="{$flash->type} panel">
-        <p>{$flash->message}</p>
-      </div>
-    </div>
-  </div>
+  {include '../_partials/flashes.latte'}
 
   <div class="row">
     <div class="large-12 columns">
       {include content}
-
-      <footer>PHP {=PHP_VERSION} |
-        {ifset $_SERVER['SERVER_SOFTWARE']}Server {$_SERVER['SERVER_SOFTWARE']}{/ifset} |
-        Nette Framework {=Nette\Framework::VERSION}</footer>
+      {include '../_partials/footer.latte'}
     </div>
   </div>

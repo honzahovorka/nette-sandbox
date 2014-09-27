@@ -1,0 +1,23 @@
+a {
+    color: #006aeb;
+    padding: 3px 1px;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: #006aeb;
+        text-decoration: none;
+        color: white;
+    }
+
+    &[href^="#error:"] {
+        background: red;
+        color: white;
+    }
+}
+
+h1,
+h2 {
+    font: normal 150%/1.3 Georgia, "New York CE", utopia, serif;
+    color: #1e5eb6;
+}

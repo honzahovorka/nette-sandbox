@@ -1,0 +1,12 @@
+form {
+  margin: 2em;
+
+  .form-errors {
+    color: #D00;
+    font: bold 100% sans-serif;
+  }
+
+  .required label {
+    font-weight: bold;
+  }
+}

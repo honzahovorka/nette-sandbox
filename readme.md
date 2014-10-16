@@ -59,7 +59,7 @@ Installing
 The best way to install `srigi-sandbox` is by using [Composer](https://getcomposer.org/). If you don't have Composer yet, download
 it following [the instructions](http://doc.nette.org/composer). Then use command:
 
-    composer create-project srigi/sandbox myapp
+    composer create-project srigi/nette-sandbox myapp
     cd myapp
 
 Make directories `temp` and `log` writable. Navigate your browser

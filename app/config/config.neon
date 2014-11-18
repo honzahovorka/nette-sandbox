@@ -50,6 +50,10 @@ services:
 webloader:
   css:
     default:
+      sourceDir: %wwwDir%/../styles
+      files:
+        - foundation.scss
+        - main.scss
       fileFilters:
         - @wlScssFilter
   js:

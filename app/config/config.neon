@@ -25,6 +25,10 @@ nette:
     save_path: %tempDir%/sessions
 
 
+extensions:
+  webloader: WebLoader\Nette\Extension
+
+
 services:
   - App\UserModel
   - App\SignInFormFactory
@@ -40,3 +44,17 @@ services:
       - $siteName(%siteName%)
 
   router: App\RouterFactory()::createRouter
+  wlScssFilter: WebLoader\Filter\ScssFilter
+
+
+webloader:
+  css:
+    default:
+      fileFilters:
+        - @wlScssFilter
+  js:
+    default:
+      files:
+        - %appDir%/../vendor/nette/forms/src/assets/netteForms.js
+      remoteFiles:
+        - //ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js

@@ -15,17 +15,11 @@
   <link rel="stylesheet" href="{$basePath}/css/main.css">
   {block styles}{/block}
   <!-- endbuild -->
+  {control css}
 </head>
 <body>
   {include layout}
 
-  <!-- build:js {$basePath}/js/vendor.js -->
-  <script src="{$basePath}/vendor/jquery/dist/jquery.js"></script>
-  <script src="{$basePath}/js/netteForms.js"></script>
-  <!-- endbuild -->
-
-  <!-- build:js {$basePath}/js/app.js -->
-  {block scripts}{/block}
-  <!-- endbuild -->
+  {control js}
 </body>
 </html>

@@ -60,5 +60,6 @@ webloader:
     default:
       files:
         - %appDir%/../vendor/nette/forms/src/assets/netteForms.js
+        - %wwwDir%/js/main.js
       remoteFiles:
         - //ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js

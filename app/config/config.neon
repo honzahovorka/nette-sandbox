@@ -6,7 +6,7 @@
 #
 
 parameters:
-  siteName: 'App'
+  siteName: 'srigi-sandbox'
   uploadsDir: %wwwDir%/../uploads
 
 

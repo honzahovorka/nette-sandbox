@@ -19,7 +19,7 @@ gulp.task('clean', function(cb) {
       'temp/btfj.dat',
       'temp/cache',
       'temp/sessions/*',
-      'www/css/*',
+      'www/webtemp/*',
     ], cb);
 });
 
@@ -41,7 +41,6 @@ gulp.task('compass', function() {
 gulp.task('jshint', function() {
   return gulp.src([
       'www/js/**/*.js',
-      '!www/js/netteForms.js',
     ])
     .pipe(g.jshint())
     .pipe(g.jshint.reporter('jshint-stylish'));
@@ -59,7 +58,7 @@ gulp.task('watch', function() {
     'app/**/*.latte',
     'app/config/*.neon',
     'app/**/*.php',
-    'www/css/**/*.css',
+    'styles/**/*.{less,sass,scss}',
     'www/js/**/*.js',
   ]).on('change', g.livereload.changed);
 });

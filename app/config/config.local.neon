@@ -7,3 +7,10 @@ database:
 	password:
 	options:
 		lazy: yes
+
+nette:
+  container:
+    debugger: true
+
+  debugger:
+    maxDepth: 4

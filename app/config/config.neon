@@ -20,9 +20,6 @@ nette:
     mapping:
       *: App\*Module\*Presenter
 
-  container:
-    debugger: true
-
   session:
     expiration: 14 days
     save_path: %tempDir%/sessions

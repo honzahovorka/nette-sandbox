@@ -1,10 +1,10 @@
 /* jshint strict: false */
 /* global require, console */
 
-var gulp        = require('gulp');
-var g           = require('gulp-load-plugins')();
 var del         = require('del');
 var fs          = require('fs');
+var g           = require('gulp-load-plugins')();
+var gulp        = require('gulp');
 var path        = require('path');
 var runSequence = require('run-sequence');
 

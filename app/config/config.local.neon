@@ -1,16 +1,18 @@
 parameters:
 
 
-database:
-	dsn: 'mysql:host=127.0.0.1;dbname=test'
-	user:
-	password:
-	options:
-		lazy: yes
-
 nette:
   container:
     debugger: true
+
+  database:
+    default:
+      dsn: 'mysql:host=127.0.0.1;dbname=test'
+      user:
+      password:
+      explain: false
+      options:
+        lazy: yes
 
   debugger:
     maxDepth: 4

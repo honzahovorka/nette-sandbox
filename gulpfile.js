@@ -1,5 +1,4 @@
-/* jshint strict: false */
-/* global require, console */
+/* jshint node: true */
 
 var del         = require('del');
 var fs          = require('fs');

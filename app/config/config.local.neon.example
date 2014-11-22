@@ -5,14 +5,15 @@ nette:
   container:
     debugger: true
 
-  database:
-    default:
-      dsn: 'mysql:host=127.0.0.1;dbname=test'
-      user:
-      password:
-      explain: false
-      options:
-        lazy: yes
-
   debugger:
     maxDepth: 4
+
+
+database:
+  default:
+    dsn: 'mysql:host=127.0.0.1;dbname=test'
+    user:
+    password:
+    explain: false
+    options:
+      lazy: yes

@@ -1,4 +1,5 @@
 /* jshint node: true */
+'use strict';
 
 var del         = require('del');
 var fs          = require('fs');

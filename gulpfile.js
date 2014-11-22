@@ -13,10 +13,13 @@ var runSequence = require('run-sequence');
 
 gulp.task('clean', function(cb) {
   return del([
+      '.sass-cache',
+      'build/*',
       'log/*',
       'temp/btfj.dat',
       'temp/cache',
       'temp/sessions/*',
+      'www/css/*',
     ], cb);
 });
 
@@ -60,12 +63,6 @@ gulp.task('watch', function() {
 
 
 // === Build ===
-
-gulp.task('buildClean', function(cb) {
-  return del([
-    'build/*',
-  ], cb);
-});
 
 gulp.task('buildCompass', function() {
   return gulp.src('www/sass/**/*.{sass,scss}')
@@ -167,7 +164,7 @@ gulp.task('compile', [
 
 gulp.task('build', function() {
   return runSequence(
-    'buildClean',
+    'clean',
     ['buildCompass', 'buildImages', 'copyApp', 'jsMaps'],
     'buildWrapper',
     'copyRevedAssets',

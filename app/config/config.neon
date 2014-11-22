@@ -27,6 +27,7 @@ nette:
 
 services:
   - App\UserModel
+  - App\SignInFormFactory
 
   DefaultPresenter:
     class: App\DefaultPresenter

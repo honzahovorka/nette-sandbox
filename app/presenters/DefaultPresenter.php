@@ -10,4 +10,13 @@ class DefaultPresenter extends BasePresenter
 	{
 	}
 
+
+	/**
+	 * @return UserPortlet
+	 */
+	protected function createComponentUserPortlet()
+	{
+		return new UserPortlet($this->getUser());
+	}
+
 }

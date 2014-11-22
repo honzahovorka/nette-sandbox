@@ -8,6 +8,8 @@ var gulp        = require('gulp');
 var path        = require('path');
 var runSequence = require('run-sequence');
 
+var isBuild;
+
 
 // === Develpement ===
 
@@ -24,15 +26,18 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('compass', function() {
+  var style = (isBuild) ? 'compressed' : 'nested';
+  var dest = (isBuild) ? 'build/www/css' : 'www/css';
+
   return gulp.src('www/sass/**/*.{sass,scss}')
     .pipe(g.compass({
       css: 'www/css',
       sass: 'www/sass',
-      style: 'nested',
+      style: style,
       comments: false,
     })).on('error', function(err) { console.warn(err.message) })
     .pipe(g.autoprefixer())
-    .pipe(gulp.dest('www/css'));
+    .pipe(gulp.dest(dest));
 });
 
 gulp.task('jshint', function() {
@@ -63,19 +68,6 @@ gulp.task('watch', function() {
 
 
 // === Build ===
-
-gulp.task('buildCompass', function() {
-  return gulp.src('www/sass/**/*.{sass,scss}')
-    .pipe(g.compass({
-      css: 'build/www/css',
-      sass: 'www/sass',
-      style: 'compressed',
-      comments: false,
-    })).on('error', function(err) { console.warn(err.message) })
-    .pipe(g.autoprefixer())
-    .pipe(g.csso())
-    .pipe(gulp.dest('build/www/css'));
-});
 
 gulp.task('buildImages', function() {
   return gulp.src('www/images/**/*.{gif,jpg,jpeg,png,webp}')
@@ -163,9 +155,11 @@ gulp.task('compile', [
 ]);
 
 gulp.task('build', function() {
+  isBuild = true;
+
   return runSequence(
     'clean',
-    ['buildCompass', 'buildImages', 'copyApp', 'jsMaps'],
+    ['buildImages', 'compass', 'copyApp', 'jsMaps'],
     'buildWrapper',
     'copyRevedAssets',
     'cleanBuild'

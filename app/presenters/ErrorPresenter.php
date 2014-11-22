@@ -39,5 +39,4 @@ class ErrorPresenter extends BasePresenter
 			$this->terminate();
 		}
 	}
-
 }

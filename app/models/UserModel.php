@@ -77,5 +77,4 @@ class UserModel extends Object implements Security\IAuthenticator
 			self::COLUMN_PASSWORD_HASH => Security\Passwords::hash($password),
 		));
 	}
-
 }

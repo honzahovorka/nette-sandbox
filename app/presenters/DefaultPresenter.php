@@ -5,7 +5,6 @@ namespace App;
 
 class DefaultPresenter extends BasePresenter
 {
-
 	public function renderDefault()
 	{
 	}
@@ -18,5 +17,4 @@ class DefaultPresenter extends BasePresenter
 	{
 		return new UserPortlet($this->getUser());
 	}
-
 }

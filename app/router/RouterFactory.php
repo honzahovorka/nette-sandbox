@@ -8,7 +8,6 @@ use Nette\Application\Routers\RouteList,
 
 class RouterFactory
 {
-
 	/**
 	 * @return \Nette\Application\IRouter
 	 */
@@ -19,5 +18,4 @@ class RouterFactory
 
 		return $router;
 	}
-
 }

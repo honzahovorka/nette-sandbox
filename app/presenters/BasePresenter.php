@@ -7,7 +7,6 @@ use Nette\Application\UI;
 
 abstract class BasePresenter extends UI\Presenter
 {
-
 	/** @var string */
 	public $siteName;
 
@@ -18,5 +17,4 @@ abstract class BasePresenter extends UI\Presenter
 
 		$this->template->siteName = $this->siteName;
 	}
-
 }

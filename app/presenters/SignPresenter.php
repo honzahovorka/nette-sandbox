@@ -10,7 +10,6 @@ use Nette\Application\UI;
  */
 class SignPresenter extends BasePresenter
 {
-
 	/** @var SignInFormFactory @inject */
 	public $signinFormFactory;
 
@@ -47,5 +46,4 @@ class SignPresenter extends BasePresenter
 	{
 		$this->redirect('Default:');
 	}
-
 }

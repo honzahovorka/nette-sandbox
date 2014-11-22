@@ -12,7 +12,6 @@ use Nette,
  */
 class SignInFormFactory extends Nette\Object
 {
-
 	/** @var Security\User */
 	private $user;
 
@@ -66,5 +65,4 @@ class SignInFormFactory extends Nette\Object
 			}
 		}
 	}
-
 }

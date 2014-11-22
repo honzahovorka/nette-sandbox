@@ -29,7 +29,6 @@ class ExampleTest extends Tester\TestCase
 	{
 		Assert::true( true );
 	}
-
 }
 
 

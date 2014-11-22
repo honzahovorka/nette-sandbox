@@ -8,7 +8,6 @@ use Nette\Application\UI,
 
 class UserPortlet extends UI\Control
 {
-
 	/** @var Security\User */
 	private $user;
 
@@ -27,5 +26,4 @@ class UserPortlet extends UI\Control
 
 		$this->template->render();
 	}
-
 }

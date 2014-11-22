@@ -2,10 +2,8 @@
 'use strict';
 
 var del         = require('del');
-var fs          = require('fs');
 var g           = require('gulp-load-plugins')();
 var gulp        = require('gulp');
-var path        = require('path');
 var runSequence = require('run-sequence');
 
 var isBuild;
@@ -149,11 +147,6 @@ gulp.task('jsMaps', function() {
 // === Main tasks definitions ===
 //
 
-gulp.task('compile', [
-  'compass',
-  'jshint',
-]);
-
 gulp.task('build', function() {
   isBuild = true;
 
@@ -166,8 +159,4 @@ gulp.task('build', function() {
   );
 });
 
-gulp.task('default', function() {
-  return runSequence(
-    ['compile', 'watch']
-  );
-});
+gulp.task('default', ['compass', 'jshint', 'watch']);

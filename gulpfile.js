@@ -50,6 +50,7 @@ gulp.task('watch', function() {
   // livereload handlers
   gulp.watch([
     'app/**/*.latte',
+    'app/config/*.neon',
     'app/**/*.php',
     'www/css/**/*.css',
     'www/js/**/*.js',

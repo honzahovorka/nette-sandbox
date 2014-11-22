@@ -15,6 +15,14 @@ class SignPresenter extends BasePresenter
 	public $signinFormFactory;
 
 
+	public function actionIn()
+	{
+		if ($this->getUser()->isLoggedIn()) {
+			$this->redirect('Default:');
+		}
+	}
+
+
 	public function actionOut()
 	{
 		$this->getUser()->logout();

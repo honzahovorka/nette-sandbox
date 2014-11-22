@@ -15,6 +15,14 @@ class SignPresenter extends BasePresenter
 	public $signinFormFactory;
 
 
+	public function actionOut()
+	{
+		$this->getUser()->logout();
+		$this->flashMessage('You have been signed out');
+		$this->redirect('Default:');
+	}
+
+
 	/**
 	 * @return UI\Form
 	 */
@@ -29,14 +37,6 @@ class SignPresenter extends BasePresenter
 
 	public function signInFormSucceeded($form)
 	{
-		$this->redirect('Default:');
-	}
-
-
-	public function actionOut()
-	{
-		$this->getUser()->logout();
-		$this->flashMessage('You have been signed out');
 		$this->redirect('Default:');
 	}
 

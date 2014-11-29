@@ -9,7 +9,7 @@ var runSequence = require('run-sequence');
 var isBuild;
 
 
-// === Develpement ===
+// === Development ===
 
 gulp.task('clean', function(cb) {
   return del([

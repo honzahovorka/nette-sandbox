@@ -5,11 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="{$robots}" n:ifset="$robots">
-  <title>{ifset #title}{include title|striptags|trim} • {/ifset}{$siteName}</title>
-
-  <!-- build:css {$basePath}/css/vendor.css -->
-  <link rel="stylesheet" href="{$basePath}/css/foundation.css">
-  <!-- endbuild -->
+  <title>{ifset #title}{include title|striptags|trim} | {/ifset}{$siteName}</title>
 
   <!-- build:css {$basePath}/css/main.css -->
   <link rel="stylesheet" href="{$basePath}/css/main.css">

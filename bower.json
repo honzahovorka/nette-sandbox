@@ -1,8 +1,7 @@
 {
-  "name": "srigi/nette-sandbox",
+  "name": "honzahovorka/nette-sandbox",
 
   "dependencies": {
-    "foundation"  : "~5.4.4",
     "jquery"      : "~2.1.1"
   }
 }

@@ -4,6 +4,7 @@
 var del         = require('del');
 var g           = require('gulp-load-plugins')();
 var gulp        = require('gulp');
+var neat        = require('node-neat').includePaths; // http:neat.bourbon.io
 var runSequence = require('run-sequence');
 
 var isBuild;
@@ -23,17 +24,16 @@ gulp.task('clean', function(cb) {
     ], cb);
 });
 
-gulp.task('compass', function() {
+gulp.task('styles', function() {
   var style = (isBuild) ? 'compressed' : 'nested';
   var dest = (isBuild) ? 'build/www/css' : 'www/css';
 
-  return gulp.src('www/sass/**/*.{sass,scss}')
-    .pipe(g.compass({
-      css: 'www/css',
-      sass: 'www/sass',
+  return gulp.src('www/scss/**/*.{sass,scss}')
+    .pipe(g.sass({
+      includePaths: ['www/scss'].concat(neat), // add bourbon neat
       style: style,
-      comments: false,
-    })).on('error', function(err) { console.warn(err.message) })
+      quiet: true
+    })).on('error', g.util.log)
     .pipe(g.autoprefixer())
     .pipe(gulp.dest(dest));
 });
@@ -51,7 +51,7 @@ gulp.task('watch', function() {
   g.livereload.listen();
 
   // compile handlers
-  gulp.watch('www/sass/**/*.{sass,scss}', ['compass']);
+  gulp.watch('www/scss/**/*.{sass,scss}', ['compass']);
   gulp.watch('www/js/**/*.js', ['jshint']);
 
   // livereload handlers
@@ -152,11 +152,11 @@ gulp.task('build', function() {
 
   return runSequence(
     'clean',
-    ['buildImages', 'compass', 'copyApp', 'jsMaps'],
+    ['buildImages', 'styles', 'copyApp', 'jsMaps'],
     'buildWrapper',
     'copyRevedAssets',
     'cleanBuild'
   );
 });
 
-gulp.task('default', ['compass', 'jshint', 'watch']);
+gulp.task('default', ['styles', 'jshint', 'watch']);

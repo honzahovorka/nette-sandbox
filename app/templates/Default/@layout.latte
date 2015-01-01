@@ -4,14 +4,7 @@
 {block layout}
   {include '../_partials/flashes.latte'}
 
-  <div class="row">
-    <div class="medium-3 columns">
-      <div class="sidebar">
-        {control userPortlet}
-      </div>
-    </div>
-
-    <div class="medium-9 columns">
+    <div class="wrapper">
       {include content}
       {include '../_partials/footer.latte'}
     </div>

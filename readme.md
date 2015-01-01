@@ -1,8 +1,8 @@
-Nette srigi-sandbox
+Nette hexicz-sandbox
 ===================
 
 Sandbox is a pre-packaged and pre-configured Nette Framework application
-that you can use as the skeleton for your new applications. This is optionated fork of original [nette-sandbox](https://github.com/nette/sandbox).
+that you can use as the skeleton for your new applications. This is fork of [Nette srigi-sandbox](https://github.com/srigi/nette-sandbox) which is optionated fork of original [nette-sandbox](https://github.com/nette/sandbox).
 
 To get better starting point for my Nette Framework projects, I modified original sandbox to fit my style. Most notable differences are:
 
@@ -13,10 +13,6 @@ To get better starting point for my Nette Framework projects, I modified origina
 - cleanup of uneeded files (`web.config`, `print.css` )
 
   Does anybody care about IIS webserver? Printing webpages?
-
-- using 2 spaces for indentation in non `.php` files (`.js`, `.json` or `.latte`). There is a `editorconfig.json` file to help to follow this code-style.
-
-  Two spaces established as general standard in Javascript world. I extended that idea to `.json` & `.html` (`.latte`) files.
 
 - removed `App\Presenters`, `App\Model` namespaces (everything is in `App` namespace)
 
@@ -44,13 +40,13 @@ To get better starting point for my Nette Framework projects, I modified origina
 
   also moved this template to more suitable place
 
-- Zurb Foundation CSS framework
-
-  Highly-optionated, but don't want to setup this all-the-time
-
 - [gulpjs](http://gulpjs.com) dev-stack
 
-  Stack for `SASS` stylesheets , two main processes - *developement* (with livereload) & *build*.
+  Stack for `SASS` stylesheets, two main processes - *developement* (with livereload) & *build*.
+
+- [Flunorette](https://github.com/icaine/flunorette) database layer.
+
+- [Bourbon](http://bourbon.io/) mixin library and [Neat](http://neat.bourbon.io/) grid framework.
 
 
 Installing
@@ -73,7 +69,7 @@ directly via a web browser! See [security warning](http://nette.org/security-war
 Devstack
 --------
 
-`srigi-sandbox` use **gulpjs** as a minimal dev-stack to support you during development. To fully embrace advantages of dev-stack you must install needed tools & packages. Nodejs is main requirement. See [installation instruction](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager) on how to install nodejs on your machine.
+`hexicz-sandbox` use **gulpjs** as a minimal dev-stack to support you during development. To fully embrace advantages of dev-stack you must install needed tools & packages. Nodejs is main requirement. See [installation instruction](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager) on how to install nodejs on your machine.
 
 Then install dev-stack:
 
@@ -87,14 +83,13 @@ Then install dev-stack:
 
 Now you can use [livereload](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions) for automatic refresh of your browser when you change files of your project.
 
-Your `.js` files will be automatically linted, you can see code-style errors on the console.  `// TODO lint php files`
+Your `.js` files will be automatically linted, you can see code-style errors on the console.
 
 #### Build your project
 
     gulp build
 
 This command will optimize frontend parts of your project & create `build` directory with builded project.
-`// TODO rethink build process not to copy whole app to build folder`
 
 License
 -------

@@ -1,5 +1,5 @@
 {
-  "name": "srigi/nette-sandbox",
+  "name": "honzahovorka/nette-sandbox",
   "description": "Pre-setted minimal Nette Framework project",
   "type": "project",
   "license": ["Unlicense"],
@@ -15,23 +15,25 @@
     {
       "name": "Igor Hlina",
       "homepage": "http://www.srigi.sk"
+    },
+    {
+      "name": "Honza Hovorka",
+      "homepage": "http://www.honzahovorka.cz"
     }
   ],
 
   "minimum-stability": "dev",
 
   "require": {
-    "php": ">= 5.3.7",
-    "nette/nette": "~2.2@dev"
+    "php": ">= 5.4",
+    "nette/nette": "~2.2.0",
+    "icaine/flunorette": "dev-develop",
+    "kdyby/autowired": "@dev",
+    "jsmitka/nette-xdebug-helper": "@dev"
   },
 
   "require-dev": {
     "nette/tester": "~1.2"
-  },
-
-  "extra": {
-    "branch-alias": {
-      "dev-master": "2.3-dev"
-    }
   }
+
 }

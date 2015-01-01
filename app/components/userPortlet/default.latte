@@ -1,8 +1,0 @@
-<div class="user-portlet">
-  {if $isLoggedIn}
-    <p>Logged in <strong>{$identity->username}</strong></p>
-    <p><a href="{plink Sign:out}">Log out</a></p>
-  {else}
-    <p><a href="{plink Sign:in}">Sign in</a></p>
-  {/if}
-</div>
